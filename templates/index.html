@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <title>Crédito de Carbono - Trabalho Acadêmico</title>
+
+    <!-- FONTES & ÍCONES -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <nav id="sidebar">
+        <h2>Crédito de Carbono</h2>
+        <div class="nav-links">
+            <a href="#inicio" class="active"><i class="fas fa-seedling"></i> Início</a>
+            <a href="#conceito"><i class="fas fa-leaf"></i> Conceito</a>
+            <a href="#impacto"><i class="fas fa-globe"></i> Impacto Ambiental</a>
+            <a href="#estrategias"><i class="fas fa-lightbulb"></i> Estratégias</a>
+            <a href="#calculadora"><i class="fas fa-calculator"></i> Calculadora</a>
+            <a href="#conclusao"><i class="fas fa-flag-checkered"></i> Conclusão</a>
+        </div>
+    </nav>
+
+    <!-- MENU HAMBÚRGUER -->
+    <div class="menu-toggle" id="menuToggle">
+        <div class="hamburger"></div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- SEÇÃO HERO -->
+        <header class="header" data-theme="hero" id="inicio">
+            <div class="header-content">
+                <h1>Seu Título Aqui</h1>
+                <p>Seu subtítulo ou texto introdutório aqui</p>
+            </div>
+        </header>
+
+        <!-- SEÇÃO CONCEITO -->
+        <section id="conceito" data-theme="light">
+            <article>
+                <h2>O que são Créditos de Carbono?</h2>
+                <p>Os créditos de carbono são certificados que representam a redução de uma tonelada de CO₂ emitida na atmosfera. Eles surgem como uma ferramenta para compensação ambiental, permitindo que empresas e governos mitiguem seus impactos no clima global.</p>
+                <p>Essa prática incentiva o desenvolvimento de tecnologias limpas e projetos sustentáveis, fortalecendo a economia verde e a responsabilidade ambiental.</p>
+            </article>
+        </section>
+
+        <!-- SEÇÃO IMPACTO -->
+        <section id="impacto" data-theme="image-1">
+            <article>
+                <h2>Impacto Ambiental</h2>
+                <div class="estrategias">
+                    <div class="card">
+                        <h4>Emissões Industriais</h4>
+                        <p>Indústrias são as maiores emissoras de gases de efeito estufa. A adoção de políticas de crédito de carbono pode compensar parte desse impacto.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Reflorestamento</h4>
+                        <p>Projetos de reflorestamento capturam CO₂ da atmosfera, contribuindo para o equilíbrio ambiental e para a biodiversidade.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- SEÇÃO ESTRATÉGIAS -->
+        <section id="estrategias" data-theme="dark-solid">
+            <article>
+                <h2>Estratégias de Sustentabilidade</h2>
+                <div class="estrategias">
+                    <div class="card">
+                        <h4>Tecnológicas</h4>
+                        <ul>
+                            <li>Energia limpa e renovável</li>
+                            <li>Otimização de processos produtivos</li>
+                            <li>Captura e armazenamento de carbono</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Sociais</h4>
+                        <ul>
+                            <li>Educação ambiental</li>
+                            <li>Programas de conscientização</li>
+                            <li>Inclusão em projetos verdes</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Corporativas</h4>
+                        <ul>
+                            <li>Relatórios de sustentabilidade</li>
+                            <li>Certificações ecológicas</li>
+                            <li>Compensação voluntária de emissões</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- SEÇÃO CALCULADORA -->
+        <section id="calculadora" data-theme="image-2">
+            <article>
+                <h2>Calculadora de Emissões</h2>
+                <p>Esta seção será conectada ao módulo Python desenvolvido separadamente, que permitirá calcular a pegada de carbono de maneira automatizada.</p>
+                    <div id="calculadora">
+                        <label> Calculadora de CO2 </label>
+
+                        <select id="tipoVeiculo">
+                            <option value="" disabled selected>Selecione o veículo</option>
+                            <option value="carro">Carro</option>
+                            <option value="moto">Moto</option>
+                            <option value="onibus">Ônibus</option>
+                            <option value="aviao">Avião</option>
+                        </select>
+
+                        <select id="combustivel">
+                            <option value="" disabled selected>Selecione o combustível</option>
+                            <option value="gasolina">Gasolina</option>
+                            <option value="etanol">Etanol</option>
+                            <option value="diesel">Diesel</option>
+                            <option value="gas_natural">Gás Natural</option>
+                            <option value="querosene_aviacao">Querosene de Aviação</option>
+                            <option value="hibrido">Híbrido</option>
+                        </select>
+
+                        <p id="infoCombustivel" style="color:#007BFF; font-weight:bold; margin-top:5px;"></p>
+
+                        <label for="frequencia">Quantas vezes por mês:</label>
+                        <input type="number" id="frequencia" min="1" max="31" placeholder="Digite de 1 a 31">
+                        <p id="aviso-frequencia" class="aviso">O valor máximo é 31.</p>
+
+                        <label for="distancia">Distância:</label>
+                        <input type="number" id="distancia" min="1" max="99999" placeholder="Distância em Km">
+                        <p id="aviso-distancia" class="aviso">O valor máximo é 99999 Km.</p>
+
+                        <button onclick="calcular()">Calcular</button>
+
+                        <label id="resultado" style="display:none;"></label>
+                    </div>
+            </article>
+        </section>
+
+        <!-- SEÇÃO CONCLUSÃO -->
+        <section id="conclusao" data-theme="light">
+            <article>
+                <h2>Conclusão</h2>
+                <p>Os créditos de carbono representam um avanço significativo na luta contra o aquecimento global. Quando implementados de forma ética e transparente, eles incentivam práticas empresariais responsáveis e investimentos em inovação verde.</p>
+                <p>O futuro sustentável depende do equilíbrio entre tecnologia, consciência e ação coletiva.</p>
+            </article>
+        </section>
+
+        <footer>
+            <p>Trabalho acadêmico para a disciplina de Atividades Práticas Supervisionadas</p>
+            <p><strong>Ciência da Computação - UNIP Chácara Santo Antônio</strong></p>
+            <p>Lucas Augusto - Jason Chen - Pedro Henrique - Nicolly Borges - Leonardo Gomes - Edson Guilherme</p>
+        </footer>
+    </main>
+    
+    
+</body>
+</html>
