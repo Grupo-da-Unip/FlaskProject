@@ -198,7 +198,6 @@ section h2::after {
 }
 [data-theme="light"] h2 { color: var(--primary-dark); }
 
-/*Não mexi aqui, pois não sei se a gente vai usar o modo escuro*/
 [data-theme="dark-solid"] {
     background-color: var(--darker);
     color: var(--text-light);
@@ -399,4 +398,9 @@ button:hover {
     width: 90%;
     padding: 20px;
   }
+}
+
+.image{
+    display: inline-block;
+    width: 100%;
 }
