@@ -241,7 +241,7 @@ function calcular() {
         etanol: 1.867,
         diesel: 3.2,
         gas_natural: 1.824,
-        querosene_aviacao: 0.12,
+        querosene_aviacao: 3.16,
         hibrido: 1.14
     };
 
