@@ -27,7 +27,7 @@ def calc():
         credito = emissao * 26.5
         arvores = emissao * 40 * 12
         
-        resultado = [emissao, credito, arvores]
+        resultado = [emissao, int(credito), int(arvores)]
         print(resultado)
 
         return jsonify(resultado)
