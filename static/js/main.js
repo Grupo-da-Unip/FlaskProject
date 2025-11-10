@@ -269,9 +269,9 @@ function calcular() {
         success: function (response) {
             console.log("Resposta:", response)
             // window.alert(response)
-            const label1 = document.getElementById("resultado");
-            label1.style.display = "inline-block";
-            label1.textContent = "Foram emitidas " + response[0] + " Toneladas de CO2 no mês, na qual são necessárias aproximadamente " + response[2] + " árvores adultas ou aproximadamente R$" + response[1] + " em credito de carbono"
+            const label = document.getElementById("resultado");
+            label.style.display = "inline-block";
+            label.textContent = "Foram emitidas " + response[0] + " Toneladas de CO2 no mês, na qual são necessárias aproximadamente " + response[2] + " árvores adultas ou aproximadamente R$" + response[1] + " em credito de carbono"
           
         },
         error: function (xhr, status, error) {
