@@ -21,6 +21,75 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ===================================
+    // 2. "Scroll Spy" (Marcar link ativo)
+    // ===================================
+    const mainContent = document.querySelector('.main-content');
+    const sections = document.querySelectorAll('section, header.header');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    mainContent.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const activationPoint = sectionTop - (mainContent.clientHeight / 2); 
+
+            if (mainContent.scrollTop >= activationPoint) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // ===================================
+    // 3. Integração da Calculadora Python (Backend)
+    // ===================================
+    const carbonForm = document.getElementById('carbon-calculator-form');
+    const carbonResult = document.getElementById('carbon-result');
+
+    if (carbonForm) {
+        carbonForm.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            carbonResult.textContent = 'Calculando...';
+
+            const formData = new FormData(carbonForm);
+            const data = {
+                transporte: formData.get('transporte'),
+                distancia: parseFloat(formData.get('distancia')) || 0,
+                energia: parseFloat(formData.get('energia')) || 0,
+                lixo: parseFloat(formData.get('lixo')) || 0
+            };
+
+            // !!! SUBSTITUA PELA URL REAL DO SEU BACKEND PYTHON !!!
+            const suaUrlDoBackend = 'http://127.0.0.1:5000/calcular'; // Exemplo
+
+            fetch(suaUrlDoBackend, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.ok ? response.json() : Promise.reject(`Erro: ${response.statusText}`))
+            .then(result => {
+                if (result.toneladas_co2 !== undefined) {
+                    carbonResult.textContent = `Pegada anual: ${result.toneladas_co2.toFixed(2)} ton CO2.`;
+                } else {
+                    carbonResult.textContent = 'Erro ao processar a resposta.';
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao conectar com o backend:', error);
+                carbonResult.textContent = 'Não foi possível conectar ao servidor.';
+            });
+        });
+    }
 });
 
 
